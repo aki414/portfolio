@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.cache/
+.deploy/
+/.vite/
+/.env
+/*.log
+/.DS_Store
