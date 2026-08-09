@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+  <rect width="100%" height="100%" fill="#14120f"/>
+  <rect x="40" y="40" width="1520" height="920" rx="18" fill="#1a1513"/>
+  <text x="50%" y="50%" font-family="Inter, sans-serif" font-size="48" fill="#A71D2A" text-anchor="middle" dominant-baseline="middle">Shooting Range</text>
+</svg>

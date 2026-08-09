@@ -13,6 +13,29 @@
     <link rel="stylesheet" crossorigin href="./assets/index-Bwov3mVX.css">
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"></div>
+    <div id="fallback-status" style="font-family: Inter, system-ui, sans-serif; color:#161417; padding:40px; text-align:center; display:none;">
+      <h2 style="margin:0 0 8px">Site failed to load</h2>
+      <p style="margin:0 0 12px">If the page is blank, open the browser console to view errors.</p>
+      <pre id="fallback-error" style="white-space:pre-wrap; text-align:left; max-width:720px; margin:0 auto; background:#fff; padding:12px; border:1px solid rgba(27,23,20,0.06); border-radius:6px; display:none;"></pre>
+    </div>
+
+    <script>
+      // Show fallback status if an uncaught error occurs during app bootstrap
+      window.addEventListener('error', function (e) {
+        try {
+          var status = document.getElementById('fallback-status');
+          var pre = document.getElementById('fallback-error');
+          if (status) status.style.display = 'block';
+          if (pre) { pre.style.display = 'block'; pre.textContent = (e && e.error && e.error.stack) ? e.error.stack : (e.message || String(e)); }
+        } catch (err) { /* ignore */ }
+      });
+
+      // If app mounts successfully it should hide the fallback; expose helper for app to call
+      window.__hideFallback = function(){
+        var s = document.getElementById('fallback-status'); if(s) s.style.display = 'none';
+      }
+    </script>
+
   </body>
 </html>
