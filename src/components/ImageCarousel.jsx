@@ -68,7 +68,7 @@ export default function ImageCarousel({ videoSrc, images = [], slides = 3 }) {
   }, [videoSrc, images, slides]);
 
   useEffect(() => {
-    const id = setInterval(() => setIndex((i) => (i + 1) % Math.max(1, slidesSrc.length)), 4000);
+    const id = setInterval(() => setIndex((i) => (i + 1) % Math.max(1, slidesSrc.length)), 5000);
     return () => clearInterval(id);
   }, [slidesSrc.length]);
 
@@ -77,7 +77,12 @@ export default function ImageCarousel({ videoSrc, images = [], slides = 3 }) {
   }
 
   return (
-    <div className="carousel" role="region" aria-roledescription="carousel">
+    <div
+      className="carousel"
+      role="region"
+      aria-roledescription="carousel"
+      onClick={() => setIndex((i) => (i + 1) % slidesSrc.length)}
+    >
       <div className="carousel-track">
         {slidesSrc.map((s, i) => (
           <div
@@ -87,32 +92,6 @@ export default function ImageCarousel({ videoSrc, images = [], slides = 3 }) {
           >
             <img src={s} alt="project preview" />
           </div>
-        ))}
-      </div>
-
-      <button
-        className="carousel-prev"
-        aria-label="Previous"
-        onClick={() => setIndex((i) => (i - 1 + slidesSrc.length) % slidesSrc.length)}
-      >
-        ‹
-      </button>
-      <button
-        className="carousel-next"
-        aria-label="Next"
-        onClick={() => setIndex((i) => (i + 1) % slidesSrc.length)}
-      >
-        ›
-      </button>
-
-      <div className="carousel-dots">
-        {slidesSrc.map((_, i) => (
-          <button
-            key={i}
-            className={`dot ${i === index ? "on" : ""}`}
-            aria-label={`Slide ${i + 1}`}
-            onClick={() => setIndex(i)}
-          />
         ))}
       </div>
     </div>

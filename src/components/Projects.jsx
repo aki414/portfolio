@@ -3,6 +3,12 @@ import { useReveal } from "../hooks/useReveal";
 import ImageCarousel from "./ImageCarousel";
 
 function ProjectRow({ project }) {
+  const images = Array.isArray(project.preview)
+    ? project.preview
+    : project.preview
+      ? [project.preview]
+      : [];
+
   return (
     <div className={`project-row${project.featured ? " featured" : ""}`}>
       <div className="project-heading">
@@ -12,7 +18,7 @@ function ProjectRow({ project }) {
       </div>
       <p className="project-desc">{project.description}</p>
       <div className="project-preview" aria-label={`${project.name} preview`}>
-        <ImageCarousel images={[project.preview]} />
+        <ImageCarousel images={images} />
       </div>
       <div className="project-meta">
         <span className="project-year">{project.year}</span>

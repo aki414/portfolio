@@ -2,6 +2,8 @@
 // Sourced from Akrem Sedki's CV. French copy has been translated and
 // tightened for a portfolio audience.
 
+const assetPath = (file) => `${import.meta.env.BASE_URL}images/${file}`;
+
 export const profile = {
   name: "Akrem Sedki",
   role: "Game Development Engineer",
@@ -23,7 +25,10 @@ export const projects = [
     category: "VR · Therapeutic",
     year: "2025",
     context: "Final-Year Project — Inheated Games",
-    preview: "/images/draw-to-grow.svg",
+    preview: [
+      assetPath("painting_1.png"),
+      assetPath("painting_2.png"),
+    ],
     description:
       "A therapeutic VR game that helps children improve fine motor skills through guided drawing and tracing exercises. Built to turn a clinical exercise into something a child actually wants to do.",
     stack: ["Unity", "C#", "VR"],
@@ -35,7 +40,12 @@ export const projects = [
     category: "Mobile · Educational",
     year: "2026",
     context: "Graduation Project — Horizon Education",
-    preview: "/images/heritage-board.svg",
+    preview: [
+      assetPath("board_1.jpg"),
+      assetPath("board_2.jpg"),
+      assetPath("board_3.jpg"),
+      assetPath("board_4.jpg"),
+    ],
     description:
       "An educational Islamic board game in Unity 3D, designed to teach religious knowledge through play. Includes a full turn system, dice mechanics, spline-based movement, and event management for branching board outcomes.",
     stack: ["Unity3D", "C#", "Mobile"],
@@ -47,7 +57,7 @@ export const projects = [
     category: "VR · Simulation",
     year: "Self-directed",
     context: "Independent Project",
-    preview: "/images/chemlab.svg",
+    preview: [],
     description:
       "A VR chemistry lab simulation that lets students handle and combine elements hands-on, without any real-world hazard. Built to make abstract chemistry tactile.",
     stack: ["Unity", "C#", "VR"],
@@ -59,7 +69,11 @@ export const projects = [
     category: "Arcade",
     year: "Self-directed",
     context: "Independent Project",
-    preview: "/images/slash.svg",
+    preview: [
+      assetPath("slash_1.png"),
+      assetPath("slash_2.png"),
+      assetPath("slash_3.png"),
+    ],
     description:
       "A fast-paced color-matching arcade game — eliminate monsters of the same color to score. Designed around tight movement, attack, and parameter systems for quick, replayable sessions.",
     stack: ["Unity", "C#"],
@@ -71,7 +85,10 @@ export const projects = [
     category: "VR · Training",
     year: "Self-directed",
     context: "Independent Project",
-    preview: "/images/shooting-range.svg",
+    preview: [
+      assetPath("shooting_1.png"),
+      assetPath("shooting_2.png"),
+    ],
     description:
       "An optimized VR shooting range built on XR Interaction Toolkit, with Addressables and object pooling to keep long training sessions smooth and stutter-free.",
     stack: ["Unity", "XR Toolkit", "Addressables"],
